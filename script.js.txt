@@ -1,0 +1,16 @@
+document.getElementById('btn').addEventListener('click', function() {
+  const username = document.getElementById('username').value;
+  const coin = document.getElementById('coin').value;
+  const result = document.getElementById('result');
+
+  if (username.trim() === '') {
+    result.innerHTML = "❌ Vui lòng nhập tên TikTok!";
+    return;
+  }
+
+  result.innerHTML = `🎁 Đang gửi ${coin} xu cho @${username}...`;
+
+  setTimeout(() => {
+    result.innerHTML = `✅ Gửi thành công ${coin} xu ảo cho @${username}!`;
+  }, 2000);
+});
