@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tặng xu TikTok ảo 🎁</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Tặng Xu TikTok Ảo 🎉</h1>
+    <input type="text" id="username" placeholder="Nhập tên TikTok của bạn">
+    
+    <select id="coin">
+      <option value="100">100 xu</option>
+      <option value="500">500 xu</option>
+      <option value="1000">1000 xu</option>
+    </select>
+    
+    <button id="btn">Nhận Xu Ngay 💰</button>
+    
+    <p id="result"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+body {
+  background: linear-gradient(135deg, #ff0066, #ffcc00);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+input, select, button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+document.getElementById('btn').addEventListener('click', function() {
+  const username = document.getElementById('username').value;
+  const coin = document.getElementById('coin').value;
+  const result = document.getElementById('result');
+
+  if (username.trim() === '') {
+    result.innerHTML = "❌ Vui lòng nhập tên TikTok!";
+    return;
+  }
+
+  result.innerHTML = `🎁 Đang gửi ${coin} xu cho @${username}...`;
+
+  setTimeout(() => {
+    result.innerHTML = `✅ Gửi thành công ${coin} xu ảo cho @${username}!`;
+  }, 2000);
+});
